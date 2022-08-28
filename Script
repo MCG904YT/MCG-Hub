@@ -828,3 +828,9 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "Credits",
 	Text = "Script Made by MCG904YT#1317 | Enjoy!", 
 })
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Synex Hub", -- 
+	Text = "Thanks for using Synex Hub! | Enjoy!", 
+	Icon = "rbxassetid://10741744651" 
+})
