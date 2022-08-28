@@ -1,0 +1,830 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local label = Instance.new("TextLabel")
+local label_2 = Instance.new("TextLabel")
+local label_3 = Instance.new("TextLabel")
+local equip = Instance.new("TextButton")
+local farm = Instance.new("TextButton")
+local toolname = Instance.new("TextBox")
+local afk = Instance.new("TextButton")
+local fps = Instance.new("TextButton")
+local hud = Instance.new("TextButton")
+local safezone = Instance.new("TextButton")
+local unequip = Instance.new("TextButton")
+local stopfarming = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local lag = Instance.new("TextButton")
+local delall = Instance.new("TextButton")
+local adumbell = Instance.new("TextButton")
+local adouble = Instance.new("TextButton")
+local god = Instance.new("TextButton")
+local dropafk = Instance.new("TextButton")
+local hudd = Instance.new("TextButton")
+local rumbled = Instance.new("TextButton")
+local lagd = Instance.new("TextButton")
+local ping = Instance.new("TextButton")
+local count = Instance.new("TextButton")
+local mainfarm = Instance.new("TextButton")
+local malik = Instance.new("TextButton")
+local clicktp = Instance.new("TextButton")
+local infjump = Instance.new("TextButton")
+local speed = Instance.new("TextButton")
+local notif = Instance.new("TextButton")
+local small = Instance.new("TextButton")
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local mouse = plr:GetMouse()
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.183760688, 0, 0.290854573, 0)
+main.Size = UDim2.new(0, 591, 0, 279)
+main.Active = true
+main.Draggable = true
+
+label.Name = "label"
+label.Parent = main
+label.BackgroundColor3 = Color3.fromRGB(255, 255, 34)
+label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+label.Size = UDim2.new(0, 200, 0, 50)
+label.Font = Enum.Font.SciFi
+label.Text = "Farming"
+label.TextColor3 = Color3.fromRGB(0, 0, 0)
+label.TextSize = 25.000
+
+label_2.Name = "label"
+label_2.Parent = main
+label_2.BackgroundColor3 = Color3.fromRGB(255, 255, 34)
+label_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+label_2.Position = UDim2.new(0.661747098, 0, 0, 0)
+label_2.Size = UDim2.new(0, 200, 0, 50)
+label_2.Font = Enum.Font.SciFi
+label_2.Text = "Miscellaneous"
+label_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+label_2.TextSize = 25.000
+
+label_3.Name = "label"
+label_3.Parent = main
+label_3.BackgroundColor3 = Color3.fromRGB(255, 255, 34)
+label_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+label_3.Position = UDim2.new(0.324716955, 0, 0, 0)
+label_3.Size = UDim2.new(0, 200, 0, 50)
+label_3.Font = Enum.Font.SciFi
+label_3.Text = "Dropping"
+label_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+label_3.TextSize = 25.000
+
+equip.Name = "equip"
+equip.Parent = main
+equip.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+equip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+equip.Position = UDim2.new(0.0169204734, 0, 0.362007171, 0)
+equip.Size = UDim2.new(0, 65, 0, 25)
+equip.Font = Enum.Font.SourceSans
+equip.Text = "Equip Tool"
+equip.TextColor3 = Color3.fromRGB(0, 0, 0)
+equip.TextSize = 14.000
+equip.TextWrapped = true
+equip.MouseButton1Down:connect(function()
+	equip.Visible = false
+	unequip.Visible = true
+	_G.equip = true
+	while _G.equip do
+		wait()
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.Name == toolname.Text then
+				v.Parent = game.Players.LocalPlayer.Character
+			end
+		end
+	end
+end)
+
+farm.Name = "farm"
+farm.Parent = main
+farm.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+farm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+farm.Position = UDim2.new(0.157360405, 0, 0.362007171, 0)
+farm.Size = UDim2.new(0, 65, 0, 25)
+farm.Font = Enum.Font.SourceSans
+farm.Text = "Farm Tool"
+farm.TextColor3 = Color3.fromRGB(0, 0, 0)
+farm.TextSize = 14.000
+farm.TextWrapped = true
+farm.MouseButton1Down:connect(function()
+	farm.Visible = false
+	stopfarming.Visible = true
+	_G.farm = true
+	while _G.farm do
+		wait(0.6)
+		for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+			if v.Name == toolname.Text then v:Activate() end
+		end
+	end
+end)
+
+toolname.Name = "toolname"
+toolname.Parent = main
+toolname.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+toolname.BorderColor3 = Color3.fromRGB(0, 0, 0)
+toolname.Position = UDim2.new(0.0304568522, 0, 0.243727624, 0)
+toolname.Size = UDim2.new(0, 133, 0, 19)
+toolname.Font = Enum.Font.SourceSans
+toolname.Text = "Tool Name Here"
+toolname.TextColor3 = Color3.fromRGB(0, 0, 0)
+toolname.TextSize = 14.000
+toolname.TextWrapped = true
+
+afk.Name = "afk"
+afk.Parent = main
+afk.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+afk.BorderColor3 = Color3.fromRGB(0, 0, 0)
+afk.Position = UDim2.new(0.0169204734, 0, 0.512544811, 0)
+afk.Size = UDim2.new(0, 65, 0, 25)
+afk.Font = Enum.Font.SourceSans
+afk.Text = "Anti-AFK"
+afk.TextColor3 = Color3.fromRGB(0, 0, 0)
+afk.TextSize = 14.000
+afk.TextWrapped = true
+afk.MouseButton1Down:connect(function()
+	wait(0.5)local ba=Instance.new("ScreenGui")
+	local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+	local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+	ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+	ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+	ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,304,0,52)
+	ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk Kick Script"ca.TextColor3=Color3.new(0,1,1)
+	ca.TextSize=22;da.Parent=ca
+	da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+	da.Size=UDim2.new(0,304,0,107)_b.Parent=da
+	_b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+	_b.Size=UDim2.new(0,304,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by XxSwordmaster_2xX"
+	_b.TextColor3=Color3.new(1,1,1)_b.TextSize=20;ab.Parent=da
+	ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377379,0)
+	ab.Size=UDim2.new(0,304,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Script Started"
+	ab.TextColor3=Color3.new(1,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+		bb:CaptureController()bb:ClickButton2(Vector2.new())
+		ab.Text="You went idle and ROBLOX tried to kick you but we reflected it!"wait(2)ab.Text="Script Re-Enabled"end)
+end)
+
+fps.Name = "fps"
+fps.Parent = main
+fps.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+fps.BorderColor3 = Color3.fromRGB(0, 0, 0)
+fps.Position = UDim2.new(0.157360405, 0, 0.512544811, 0)
+fps.Size = UDim2.new(0, 65, 0, 25)
+fps.Font = Enum.Font.SourceSans
+fps.Text = "FPS"
+fps.TextColor3 = Color3.fromRGB(0, 0, 0)
+fps.TextSize = 14.000
+fps.TextWrapped = true
+fps.MouseButton1Down:connect(function()
+	local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+	local g = game
+	local w = g.Workspace
+	local l = g.Lighting
+	local t = w.Terrain
+	t.WaterWaveSize = 0
+	t.WaterWaveSpeed = 0
+	t.WaterReflectance = 0
+	t.WaterTransparency = 0
+	l.GlobalShadows = false
+	l.FogEnd = 9e9
+	l.Brightness = 0
+	settings().Rendering.QualityLevel = "Level01"
+	for i,v in pairs(g:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") and decalsyeeted then 
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then 
+			v.Lifetime = NumberRange.new(0)
+		end
+	end
+end)
+
+hud.Name = "hud"
+hud.Parent = main
+hud.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+hud.BorderColor3 = Color3.fromRGB(0, 0, 0)
+hud.Position = UDim2.new(0.0169204734, 0, 0.66308248, 0)
+hud.Size = UDim2.new(0, 65, 0, 25)
+hud.Font = Enum.Font.SourceSans
+hud.Text = "Delete HUD"
+hud.TextColor3 = Color3.fromRGB(0, 0, 0)
+hud.TextSize = 14.000
+hud.TextWrapped = true
+hud.MouseButton1Down:connect(function()
+	game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
+end)
+
+safezone.Name = "safezone"
+safezone.Parent = main
+safezone.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+safezone.BorderColor3 = Color3.fromRGB(0, 0, 0)
+safezone.Position = UDim2.new(0.157360405, 0, 0.66308248, 0)
+safezone.Size = UDim2.new(0, 65, 0, 25)
+safezone.Font = Enum.Font.SourceSans
+safezone.Text = "TP To Safe Zone"
+safezone.TextColor3 = Color3.fromRGB(0, 0, 0)
+safezone.TextSize = 11.000
+safezone.TextWrapped = true
+safezone.MouseButton1Down:connect(function()
+	char.HumanoidRootPart.CFrame = CFrame.new(-1977.9436, 510, -5295.2124, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+unequip.Name = "unequip"
+unequip.Parent = main
+unequip.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+unequip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+unequip.Position = UDim2.new(0.0169204772, 0, 0.362007201, 0)
+unequip.Size = UDim2.new(0, 65, 0, 25)
+unequip.Font = Enum.Font.SourceSans
+unequip.Text = "Unequip Tool"
+unequip.TextColor3 = Color3.fromRGB(0, 0, 0)
+unequip.TextSize = 13.000
+unequip.TextWrapped = true
+unequip.Visible = false
+unequip.MouseButton1Down:connect(function()
+	unequip.Visible = false
+	equip.Visible = true
+	_G.equip = false
+end)
+
+stopfarming.Name = "stopfarming"
+stopfarming.Parent = main
+stopfarming.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+stopfarming.BorderColor3 = Color3.fromRGB(0, 0, 0)
+stopfarming.Position = UDim2.new(0.15736039, 0, 0.362007171, 0)
+stopfarming.Size = UDim2.new(0, 65, 0, 25)
+stopfarming.Font = Enum.Font.SourceSans
+stopfarming.Text = "Stop Farming"
+stopfarming.TextColor3 = Color3.fromRGB(0, 0, 0)
+stopfarming.TextSize = 13.000
+stopfarming.TextWrapped = true
+stopfarming.Visible = false
+stopfarming.MouseButton1Down:connect(function()
+	stopfarming.Visible = false
+	farm.Visible = true
+	_G.farm = false
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+close.Position = UDim2.new(0.915397644, 0, 0.820788503, 0)
+close.Size = UDim2.new(0, 50, 0, 50)
+close.Font = Enum.Font.SourceSans
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextSize = 60.000
+close.MouseButton1Down:connect(function()
+	main.Visible = false
+end)
+
+lag.Name = "lag"
+lag.Parent = main
+lag.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+lag.BorderColor3 = Color3.fromRGB(0, 0, 0)
+lag.Position = UDim2.new(0.0169204734, 0, 0.820788503, 0)
+lag.Size = UDim2.new(0, 65, 0, 25)
+lag.Font = Enum.Font.SourceSans
+lag.Text = "Delete Rumble"
+lag.TextColor3 = Color3.fromRGB(0, 0, 0)
+lag.TextSize = 11.000
+lag.TextWrapped = true
+lag.MouseButton1Down:connect(function()
+	game.ReplicatedFirst.TourneyQ:Destroy()
+end)
+
+delall.Name = "delall"
+delall.Parent = main
+delall.BackgroundColor3 = Color3.fromRGB(85, 85, 127)
+delall.BorderColor3 = Color3.fromRGB(0, 0, 0)
+delall.Position = UDim2.new(0.157360405, 0, 0.820788503, 0)
+delall.Size = UDim2.new(0, 65, 0, 25)
+delall.Font = Enum.Font.SourceSans
+delall.Text = "Delete all"
+delall.TextColor3 = Color3.fromRGB(0, 0, 0)
+delall.TextSize = 14.000
+delall.TextWrapped = true
+delall.MouseButton1Down:connect(function()
+	game.ReplicatedFirst.TourneyQ:Destroy()
+	game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
+	
+	local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+	local g = game
+	local w = g.Workspace
+	local l = g.Lighting
+	local t = w.Terrain
+	t.WaterWaveSize = 0
+	t.WaterWaveSpeed = 0
+	t.WaterReflectance = 0
+	t.WaterTransparency = 0
+	l.GlobalShadows = false
+	l.FogEnd = 9e9
+	l.Brightness = 0
+	settings().Rendering.QualityLevel = "Level01"
+	for i,v in pairs(g:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") and decalsyeeted then 
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then 
+			v.Lifetime = NumberRange.new(0)
+		end
+	end
+end)
+
+adumbell.Name = "adumbell"
+adumbell.Parent = main
+adumbell.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+adumbell.BorderColor3 = Color3.fromRGB(0, 0, 0)
+adumbell.Position = UDim2.new(0.362098098, 0, 0.243727624, 0)
+adumbell.Size = UDim2.new(0, 65, 0, 25)
+adumbell.Font = Enum.Font.SourceSans
+adumbell.Text = "Auto-Equip Dumbell"
+adumbell.TextColor3 = Color3.fromRGB(0, 0, 0)
+adumbell.TextSize = 11.000
+adumbell.TextWrapped = true
+adumbell.MouseButton1Down:connect(function()
+	_G.Equip = true
+	while _G.Equip do
+		wait(1)
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.Name == "Dumbell" then v:Activate()
+				v.Parent = game.Players.LocalPlayer.Character
+			end
+		end
+	end
+end)
+
+adouble.Name = "adouble"
+adouble.Parent = main
+adouble.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+adouble.BorderColor3 = Color3.fromRGB(0, 0, 0)
+adouble.Position = UDim2.new(0.529610753, 0, 0.243727624, 0)
+adouble.Size = UDim2.new(0, 65, 0, 25)
+adouble.Font = Enum.Font.SourceSans
+adouble.Text = "Auto-Equip Double Weight"
+adouble.TextColor3 = Color3.fromRGB(0, 0, 0)
+adouble.TextSize = 11.000
+adouble.TextWrapped = true
+adouble.MouseButton1Down:connect(function()
+	_G.Equip = true
+	while _G.Equip do
+		wait(1)
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.Name == "Double Weight" then v:Activate()
+				v.Parent = game.Players.LocalPlayer.Character
+			end
+		end
+	end
+end)
+
+god.Name = "god"
+god.Parent = main
+god.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+god.BorderColor3 = Color3.fromRGB(0, 0, 0)
+god.Position = UDim2.new(0.360406011, 0, 0.3978495, 0)
+god.Size = UDim2.new(0, 65, 0, 25)
+god.Font = Enum.Font.SourceSans
+god.Text = "Auto-Drop/Auto-Godmode"
+god.TextColor3 = Color3.fromRGB(0, 0, 0)
+god.TextSize = 11.000
+god.TextWrapped = true
+god.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/CjVD4RZN", true))()
+end)
+
+dropafk.Name = "dropafk"
+dropafk.Parent = main
+dropafk.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+dropafk.BorderColor3 = Color3.fromRGB(0, 0, 0)
+dropafk.Position = UDim2.new(0.529610753, 0, 0.3978495, 0)
+dropafk.Size = UDim2.new(0, 65, 0, 25)
+dropafk.Font = Enum.Font.SourceSans
+dropafk.Text = "Anti-AFK-Drop"
+dropafk.TextColor3 = Color3.fromRGB(0, 0, 0)
+dropafk.TextSize = 12.000
+dropafk.TextWrapped = true
+dropafk.MouseButton1Down:connect(function()
+	wait(0.5)local ba=Instance.new("ScreenGui")
+	local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+	local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+	ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+	ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+	ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,304,0,52)
+	ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk Kick Script"ca.TextColor3=Color3.new(0,1,1)
+	ca.TextSize=22;da.Parent=ca
+	da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+	da.Size=UDim2.new(0,304,0,107)_b.Parent=da
+	_b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+	_b.Size=UDim2.new(0,304,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by XxSwordmaster_2xX"
+	_b.TextColor3=Color3.new(1,1,1)_b.TextSize=20;ab.Parent=da
+	ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377379,0)
+	ab.Size=UDim2.new(0,304,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Script Started"
+	ab.TextColor3=Color3.new(1,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+		bb:CaptureController()bb:ClickButton2(Vector2.new())
+		ab.Text="You went idle and ROBLOX tried to kick you but we reflected it!"wait(2)ab.Text="Script Re-Enabled"end)
+end)
+
+hudd.Name = "hudd"
+hudd.Parent = main
+hudd.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+hudd.BorderColor3 = Color3.fromRGB(0, 0, 0)
+hudd.Position = UDim2.new(0.360406011, 0, 0.551971376, 0)
+hudd.Size = UDim2.new(0, 65, 0, 25)
+hudd.Font = Enum.Font.SourceSans
+hudd.Text = "Delete HUD"
+hudd.TextColor3 = Color3.fromRGB(0, 0, 0)
+hudd.TextSize = 14.000
+hudd.TextWrapped = true
+hudd.MouseButton1Down:connect(function()
+	game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
+end)
+
+rumbled.Name = "rumbled"
+rumbled.Parent = main
+rumbled.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+rumbled.BorderColor3 = Color3.fromRGB(0, 0, 0)
+rumbled.Position = UDim2.new(0.529610753, 0, 0.551971376, 0)
+rumbled.Size = UDim2.new(0, 65, 0, 25)
+rumbled.Font = Enum.Font.SourceSans
+rumbled.Text = "Delete Rumble"
+rumbled.TextColor3 = Color3.fromRGB(0, 0, 0)
+rumbled.TextSize = 11.000
+rumbled.TextWrapped = true
+rumbled.MouseButton1Down:connect(function()
+	game.ReplicatedFirst.TourneyQ:Destroy()
+end)
+
+lagd.Name = "lagd"
+lagd.Parent = main
+lagd.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+lagd.BorderColor3 = Color3.fromRGB(0, 0, 0)
+lagd.Position = UDim2.new(0.529610753, 0, 0.706093252, 0)
+lagd.Size = UDim2.new(0, 65, 0, 25)
+lagd.Font = Enum.Font.SourceSans
+lagd.Text = "Less Lag"
+lagd.TextColor3 = Color3.fromRGB(0, 0, 0)
+lagd.TextSize = 17.000
+lagd.TextWrapped = true
+lag.MouseButton1Down:connect(function()
+	game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
+	game.ReplicatedFirst.TourneyQ:Destroy()
+	
+	local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+	local g = game
+	local w = g.Workspace
+	local l = g.Lighting
+	local t = w.Terrain
+	t.WaterWaveSize = 0
+	t.WaterWaveSpeed = 0
+	t.WaterReflectance = 0
+	t.WaterTransparency = 0
+	l.GlobalShadows = false
+	l.FogEnd = 9e9
+	l.Brightness = 0
+	settings().Rendering.QualityLevel = "Level01"
+	for i,v in pairs(g:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") and decalsyeeted then 
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then 
+			v.Lifetime = NumberRange.new(0)
+		end
+	end
+end)
+
+ping.Name = "ping"
+ping.Parent = main
+ping.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+ping.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ping.Position = UDim2.new(0.360406011, 0, 0.706093252, 0)
+ping.Size = UDim2.new(0, 65, 0, 25)
+ping.Font = Enum.Font.SourceSans
+ping.Text = "Lower Ping"
+ping.TextColor3 = Color3.fromRGB(0, 0, 0)
+ping.TextSize = 15.000
+ping.TextWrapped = true
+ping.MouseButton1Down:connect(function()
+	local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+	local g = game
+	local w = g.Workspace
+	local l = g.Lighting
+	local t = w.Terrain
+	t.WaterWaveSize = 0
+	t.WaterWaveSpeed = 0
+	t.WaterReflectance = 0
+	t.WaterTransparency = 0
+	l.GlobalShadows = false
+	l.FogEnd = 9e9
+	l.Brightness = 0
+	settings().Rendering.QualityLevel = "Level01"
+	for i,v in pairs(g:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") and decalsyeeted then 
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then 
+			v.Lifetime = NumberRange.new(0)
+		end
+	end
+end)
+
+count.Name = "count"
+count.Parent = main
+count.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+count.BorderColor3 = Color3.fromRGB(0, 0, 0)
+count.Position = UDim2.new(0.445008397, 0, 0.863799334, 0)
+count.Size = UDim2.new(0, 65, 0, 25)
+count.Font = Enum.Font.SourceSans
+count.Text = "Count Double Weights"
+count.TextColor3 = Color3.fromRGB(0, 0, 0)
+count.TextSize = 12.000
+count.TextWrapped = true
+count.MouseButton1Down:connect(function()
+	-- Gui to Lua
+	-- Version: 3.2
+
+	-- Instances:
+
+	local ScreenGui = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local UIGradient = Instance.new("UIGradient")
+	local textlabel = Instance.new("TextLabel")
+	local UICorner = Instance.new("UICorner")
+	local UIGradient_2 = Instance.new("UIGradient")
+
+	--Properties:
+
+	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGui.DisplayOrder = 999999999
+	ScreenGui.ResetOnSpawn = false
+
+	Frame.Parent = ScreenGui
+	Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Frame.BorderSizePixel = 2
+	Frame.Position = UDim2.new(0.65150404, 0, 0.508939207, 0)
+	Frame.Size = UDim2.new(0, 215, 0, 59)
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(69, 140, 255)), ColorSequenceKeypoint.new(0.34, Color3.fromRGB(35, 28, 255)), ColorSequenceKeypoint.new(0.51, Color3.fromRGB(109, 65, 255)), ColorSequenceKeypoint.new(0.79, Color3.fromRGB(29, 82, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(69, 140, 255))}
+	UIGradient.Parent = Frame
+
+	textlabel.Name = "textlabel"
+	textlabel.Parent = Frame
+	textlabel.Active = true
+	textlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	textlabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	textlabel.Size = UDim2.new(0, 215, 0, 58)
+	textlabel.Font = Enum.Font.SourceSans
+	textlabel.Text = "0 Dw"
+	textlabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+	textlabel.TextSize = 23.000
+	textlabel.TextWrapped = true
+
+	UICorner.CornerRadius = UDim.new(0, 10)
+	UICorner.Parent = textlabel
+
+	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(69, 140, 255)), ColorSequenceKeypoint.new(0.34, Color3.fromRGB(35, 28, 255)), ColorSequenceKeypoint.new(0.51, Color3.fromRGB(109, 65, 255)), ColorSequenceKeypoint.new(0.79, Color3.fromRGB(29, 82, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(69, 140, 255))}
+	UIGradient_2.Parent = textlabel
+
+	-- Scripts:
+
+	local function XVYMLY_fake_script() -- ScreenGui.LocalScript 
+		local script = Instance.new('LocalScript', ScreenGui)
+
+		frame = script.Parent.Frame
+		frame.Draggable = true
+		frame.Active = true
+		frame.Selectable = true
+	end
+	coroutine.wrap(XVYMLY_fake_script)()
+
+	repeat
+		wait(.1)
+		local num = 0
+		for i,v in pairs(game:GetService("CoreGui").RobloxGui.Backpack.Inventory.ScrollingFrame.UIGridFrame:GetChildren()) do
+			if v:IsA("TextButton") then
+				num += 1
+			end
+		end
+		textlabel.Text = num.."DW"
+	until num == 9999999999999
+end)
+
+mainfarm.Name = "mainfarm"
+mainfarm.Parent = main
+mainfarm.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+mainfarm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+mainfarm.Position = UDim2.new(0.693739414, 0, 0.225806445, 0)
+mainfarm.Size = UDim2.new(0, 57, 0, 30)
+mainfarm.Font = Enum.Font.SourceSans
+mainfarm.Text = "MCG's Main Farm"
+mainfarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+mainfarm.TextScaled = true
+mainfarm.TextSize = 1.000
+mainfarm.TextWrapped = true
+mainfarm.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/MCG904YT/1234567890/main/2'))()
+end)
+
+malik.Name = "malik"
+malik.Parent = main
+malik.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+malik.BorderColor3 = Color3.fromRGB(0, 0, 0)
+malik.Position = UDim2.new(0.861252069, 0, 0.222222209, 0)
+malik.Size = UDim2.new(0, 57, 0, 30)
+malik.Font = Enum.Font.SourceSans
+malik.Text = "S_Malik's Farm"
+malik.TextColor3 = Color3.fromRGB(0, 0, 0)
+malik.TextScaled = true
+malik.TextSize = 1.000
+malik.TextWrapped = true
+malik.MouseButton1Down:connect(function()
+	loadstring("\108\111\99\97\108\32\76\105\98\114\97\114\121\32\61\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\120\72\101\112\116\99\47\75\97\118\111\45\85\73\45\76\105\98\114\97\114\121\47\109\97\105\110\47\115\111\117\114\99\101\46\108\117\97\34\41\41\40\41\10\108\111\99\97\108\32\87\105\110\100\111\119\32\61\32\76\105\98\114\97\114\121\46\67\114\101\97\116\101\76\105\98\40\34\83\95\77\97\108\105\107\32\85\108\116\105\109\97\116\101\32\70\97\114\109\32\83\99\114\105\112\116\34\44\32\34\66\108\111\111\100\84\104\101\109\101\34\41\10\10\108\111\99\97\108\32\84\97\98\32\61\32\87\105\110\100\111\119\58\78\101\119\84\97\98\40\34\70\97\114\109\34\41\10\108\111\99\97\108\32\83\101\99\116\105\111\110\32\61\32\84\97\98\58\78\101\119\83\101\99\116\105\111\110\40\34\70\97\114\109\34\41\10\10\83\101\99\116\105\111\110\58\78\101\119\84\111\103\103\108\101\40\34\69\113\117\105\112\34\44\32\34\70\97\114\109\34\44\32\102\117\110\99\116\105\111\110\40\115\116\97\116\101\41\10\32\32\32\32\105\102\32\115\116\97\116\101\32\116\104\101\110\10\32\32\32\32\32\32\32\32\95\71\46\69\113\117\105\112\32\61\32\116\114\117\101\10\32\32\32\32\32\32\32\32\119\104\105\108\101\32\95\71\46\69\113\117\105\112\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\119\97\105\116\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\66\97\99\107\112\97\99\107\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\46\78\97\109\101\32\61\61\32\34\68\111\117\98\108\101\32\87\101\105\103\104\116\34\32\116\104\101\110\32\118\58\65\99\116\105\118\97\116\101\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\118\46\80\97\114\101\110\116\32\61\32\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\108\115\101\10\32\32\32\32\32\32\32\32\95\71\46\69\113\117\105\112\32\61\32\102\97\108\115\101\10\32\32\32\32\32\32\32\32\119\104\105\108\101\32\95\71\46\69\113\117\105\112\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\119\97\105\116\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\66\97\99\107\112\97\99\107\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\46\78\97\109\101\32\61\61\32\34\68\111\117\98\108\101\32\87\101\105\103\104\116\34\32\116\104\101\110\32\118\58\65\99\116\105\118\97\116\101\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\118\46\80\97\114\101\110\116\32\61\32\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\110\100\10\101\110\100\41\10\10\83\101\99\116\105\111\110\58\78\101\119\84\111\103\103\108\101\40\34\70\97\114\109\34\44\32\34\70\97\114\109\34\44\32\102\117\110\99\116\105\111\110\40\115\116\97\116\101\41\10\32\32\32\32\105\102\32\115\116\97\116\101\32\116\104\101\110\10\32\32\32\32\32\32\32\32\95\71\46\65\117\116\111\52\32\61\32\116\114\117\101\10\32\32\32\32\32\32\32\32\119\104\105\108\101\32\95\71\46\65\117\116\111\52\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\119\97\105\116\40\48\46\54\41\10\32\32\32\32\32\32\32\32\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\46\78\97\109\101\32\61\61\32\34\68\111\117\98\108\101\32\87\101\105\103\104\116\34\32\116\104\101\110\32\118\58\65\99\116\105\118\97\116\101\40\41\32\101\110\100\10\32\32\32\32\10\32\32\32\32\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\108\115\101\10\32\32\32\32\32\32\32\32\95\71\46\65\117\116\111\52\32\61\32\102\97\108\115\101\10\32\32\32\32\32\32\32\32\119\104\105\108\101\32\95\71\46\65\117\116\111\52\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\119\97\105\116\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\46\78\97\109\101\32\61\61\32\34\68\111\117\98\108\101\32\87\101\105\103\104\116\34\32\116\104\101\110\32\118\58\65\99\116\105\118\97\116\101\40\41\32\101\110\100\10\32\32\32\32\10\32\32\32\32\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\110\100\10\101\110\100\41\10\10\83\101\99\116\105\111\110\58\78\101\119\84\111\103\103\108\101\40\34\76\111\99\107\32\80\108\97\121\101\114\34\44\32\34\76\111\99\107\32\80\108\97\121\101\114\34\44\32\102\117\110\99\116\105\111\110\40\115\116\97\116\101\41\10\32\32\32\32\105\102\32\115\116\97\116\101\32\116\104\101\110\10\32\32\32\32\32\32\32\32\102\111\114\32\105\44\32\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\58\73\115\65\40\39\80\97\114\116\39\41\32\116\104\101\110\32\118\46\65\110\99\104\111\114\101\100\32\61\32\116\114\117\101\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\108\115\101\10\32\32\32\32\32\32\32\32\102\111\114\32\105\44\32\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\58\73\115\65\40\39\80\97\114\116\39\41\32\116\104\101\110\32\118\46\65\110\99\104\111\114\101\100\32\61\32\102\97\108\115\101\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\110\100\10\101\110\100\41\10\10\108\111\99\97\108\32\83\101\99\116\105\111\110\49\32\61\32\84\97\98\58\78\101\119\83\101\99\116\105\111\110\40\34\69\120\116\114\97\34\41\10\10\83\101\99\116\105\111\110\49\58\78\101\119\66\117\116\116\111\110\40\34\76\111\119\101\114\32\80\105\110\103\34\44\32\34\76\111\119\101\114\32\80\105\110\103\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\109\109\69\114\54\48\100\53\34\44\32\116\114\117\101\41\41\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\49\58\78\101\119\66\117\116\116\111\110\40\34\76\111\119\101\114\32\72\117\100\34\44\32\34\72\117\100\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\80\114\111\116\101\105\110\66\117\121\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\79\112\101\110\83\104\111\112\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\79\112\101\110\82\101\98\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\73\109\97\103\101\76\97\98\101\108\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\79\112\101\110\80\97\99\107\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\80\111\112\83\111\117\110\100\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\66\108\97\99\107\77\97\114\107\101\116\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\76\105\102\116\82\101\109\105\110\100\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\77\117\115\99\108\101\71\97\105\110\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\82\101\98\70\114\97\109\101\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\83\104\111\112\70\114\97\109\101\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\79\112\101\110\83\107\105\110\115\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\66\97\114\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\83\116\114\101\110\103\116\104\72\111\108\100\101\114\46\73\109\97\103\101\76\97\98\101\108\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\83\116\114\101\110\103\116\104\72\111\108\100\101\114\46\84\101\120\116\76\97\98\101\108\46\84\101\120\116\76\97\98\101\108\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\67\97\115\104\72\111\108\100\101\114\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\67\97\115\104\66\117\116\116\111\110\58\68\101\115\116\114\111\121\40\41\10\9\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\46\76\111\99\97\108\80\108\97\121\101\114\46\80\108\97\121\101\114\71\117\105\46\72\85\68\46\70\114\97\109\101\46\82\117\109\98\108\101\72\111\108\100\101\114\58\68\101\115\116\114\111\121\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\49\58\78\101\119\66\117\116\116\111\110\40\34\67\108\111\117\100\115\34\44\32\34\67\108\111\117\100\115\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\87\111\114\107\115\112\97\99\101\34\41\46\67\108\111\117\100\115\58\68\101\115\116\114\111\121\40\41\10\9\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\112\108\97\121\101\114\46\80\108\97\121\101\114\83\99\114\105\112\116\115\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\9\9\105\102\32\118\46\78\97\109\101\32\61\61\32\34\76\111\99\97\108\83\99\114\105\112\116\34\32\116\104\101\110\10\9\9\9\118\58\68\101\115\116\114\111\121\40\41\10\9\9\101\110\100\10\9\101\110\100\10\101\110\100\41\10\10\83\101\99\116\105\111\110\49\58\78\101\119\66\117\116\116\111\110\40\34\67\111\117\110\116\34\44\32\34\67\111\117\110\116\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\115\115\115\115\115\49\100\102\103\104\47\67\111\117\110\116\47\109\97\105\110\47\108\111\97\100\101\114\34\44\32\116\114\117\101\41\41\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\49\58\78\101\119\66\117\116\116\111\110\40\34\82\117\109\98\108\101\34\44\32\34\68\101\108\32\82\117\109\98\108\101\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\103\97\109\101\46\82\101\112\108\105\99\97\116\101\100\70\105\114\115\116\46\84\111\117\114\110\101\121\81\58\68\101\115\116\114\111\121\40\41\10\101\110\100\41\10\10\108\111\99\97\108\32\84\97\98\32\61\32\87\105\110\100\111\119\58\78\101\119\84\97\98\40\34\68\114\111\112\105\110\103\34\41\10\108\111\99\97\108\32\83\101\99\116\105\111\110\51\32\61\32\84\97\98\58\78\101\119\83\101\99\116\105\111\110\40\34\68\114\111\112\105\110\103\34\41\10\10\83\101\99\116\105\111\110\51\58\78\101\119\84\111\103\103\108\101\40\34\69\113\117\105\112\34\44\32\34\69\113\117\105\112\34\44\32\102\117\110\99\116\105\111\110\40\115\116\97\116\101\41\10\32\32\32\32\105\102\32\115\116\97\116\101\32\116\104\101\110\10\32\32\32\32\32\32\32\32\95\71\46\69\113\117\105\112\32\61\32\116\114\117\101\10\32\32\32\32\32\32\32\32\119\104\105\108\101\32\95\71\46\69\113\117\105\112\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\119\97\105\116\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\66\97\99\107\112\97\99\107\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\46\78\97\109\101\32\61\61\32\34\68\111\117\98\108\101\32\87\101\105\103\104\116\34\32\116\104\101\110\32\118\58\65\99\116\105\118\97\116\101\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\118\46\80\97\114\101\110\116\32\61\32\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\108\115\101\10\32\32\32\32\32\32\32\32\95\71\46\69\113\117\105\112\32\61\32\102\97\108\115\101\10\32\32\32\32\32\32\32\32\119\104\105\108\101\32\95\71\46\69\113\117\105\112\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\119\97\105\116\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\66\97\99\107\112\97\99\107\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\118\46\78\97\109\101\32\61\61\32\34\68\111\117\98\108\101\32\87\101\105\103\104\116\34\32\116\104\101\110\32\118\58\65\99\116\105\118\97\116\101\40\41\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\118\46\80\97\114\101\110\116\32\61\32\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\32\32\32\32\101\110\100\10\32\32\32\32\101\110\100\10\101\110\100\41\10\10\83\101\99\116\105\111\110\51\58\78\101\119\66\117\116\116\111\110\40\34\68\114\111\112\34\44\32\34\68\114\111\112\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\67\106\86\68\52\82\90\78\34\44\32\116\114\117\101\41\41\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\51\58\78\101\119\66\117\116\116\111\110\40\34\82\101\118\105\122\34\44\32\34\82\101\118\105\122\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\112\71\104\89\110\115\120\65\34\44\32\116\114\117\101\41\41\40\41\10\101\110\100\41\10\10\108\111\99\97\108\32\84\97\98\32\61\32\87\105\110\100\111\119\58\78\101\119\84\97\98\40\34\77\105\115\99\34\41\10\108\111\99\97\108\32\83\101\99\116\105\111\110\52\32\61\32\84\97\98\58\78\101\119\83\101\99\116\105\111\110\40\34\77\105\115\99\34\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\66\117\116\116\111\110\40\34\83\109\97\108\108\34\44\32\34\83\109\97\108\108\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\58\71\101\116\67\104\105\108\100\114\101\110\40\41\41\32\100\111\10\9\9\105\102\32\118\58\73\115\65\40\34\78\117\109\98\101\114\86\97\108\117\101\34\41\32\116\104\101\110\10\9\9\9\118\58\68\101\115\116\114\111\121\40\41\10\9\9\101\110\100\10\9\101\110\100\10\101\110\100\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\66\117\116\116\111\110\40\34\66\105\103\103\101\114\32\83\109\97\108\108\34\44\32\34\66\105\103\103\101\114\32\83\109\97\108\108\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\99\97\108\32\112\108\97\121\101\114\32\61\32\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\10\32\32\32\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\87\111\114\107\115\112\97\99\101\34\41\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\112\108\97\121\101\114\46\78\97\109\101\41\46\72\117\109\97\110\111\105\100\46\66\111\100\121\87\105\100\116\104\83\99\97\108\101\58\100\101\115\116\114\111\121\40\41\10\32\32\32\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\87\111\114\107\115\112\97\99\101\34\41\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\112\108\97\121\101\114\46\78\97\109\101\41\46\72\117\109\97\110\111\105\100\46\66\111\100\121\68\101\112\116\104\83\99\97\108\101\58\100\101\115\116\114\111\121\40\41\10\32\32\32\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\87\111\114\107\115\112\97\99\101\34\41\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\112\108\97\121\101\114\46\78\97\109\101\41\46\72\117\109\97\110\111\105\100\46\66\111\100\121\72\101\105\103\104\116\83\99\97\108\101\58\100\101\115\116\114\111\121\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\66\117\116\116\111\110\40\34\65\110\116\105\45\65\70\75\34\44\32\34\65\110\116\105\32\65\70\75\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\99\97\108\32\86\105\114\116\117\97\108\85\115\101\114\61\103\97\109\101\58\115\101\114\118\105\99\101\39\86\105\114\116\117\97\108\85\115\101\114\39\10\32\32\32\32\103\97\109\101\58\115\101\114\118\105\99\101\39\80\108\97\121\101\114\115\39\46\76\111\99\97\108\80\108\97\121\101\114\46\73\100\108\101\100\58\99\111\110\110\101\99\116\40\102\117\110\99\116\105\111\110\40\41\10\9\32\32\32\32\86\105\114\116\117\97\108\85\115\101\114\58\67\97\112\116\117\114\101\67\111\110\116\114\111\108\108\101\114\40\41\10\9\32\32\32\32\86\105\114\116\117\97\108\85\115\101\114\58\67\108\105\99\107\66\117\116\116\111\110\50\40\86\101\99\116\111\114\50\46\110\101\119\40\41\41\10\32\32\32\32\101\110\100\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\66\117\116\116\111\110\40\34\76\111\111\112\34\44\32\34\76\111\111\112\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\115\115\115\115\115\49\100\102\103\104\47\77\121\45\76\111\111\112\47\109\97\105\110\47\108\111\97\100\101\114\34\44\32\116\114\117\101\41\41\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\66\117\116\116\111\110\40\34\67\104\101\99\107\32\83\116\114\101\110\103\116\104\34\44\32\34\67\104\101\99\107\32\83\116\114\101\110\103\116\104\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\115\115\115\115\115\49\100\102\103\104\47\83\116\114\101\110\103\116\104\45\83\80\89\47\109\97\105\110\47\108\111\97\100\101\114\34\44\32\116\114\117\101\41\41\40\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\83\108\105\100\101\114\40\34\74\117\109\112\80\111\119\101\114\34\44\32\34\74\117\109\112\80\111\119\101\114\34\44\32\55\53\48\44\32\48\44\32\102\117\110\99\116\105\111\110\40\106\112\41\10\32\32\32\32\103\97\109\101\46\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\46\74\117\109\112\80\111\119\101\114\32\61\32\106\112\10\101\110\100\41\10\10\83\101\99\116\105\111\110\52\58\78\101\119\75\101\121\98\105\110\100\40\34\84\111\103\103\108\101\32\79\110\47\79\102\102\34\44\32\34\67\108\105\99\107\32\70\32\79\114\32\99\108\105\99\107\32\84\104\105\115\33\34\44\32\69\110\117\109\46\75\101\121\67\111\100\101\46\70\44\32\102\117\110\99\116\105\111\110\40\41\10\9\76\105\98\114\97\114\121\58\84\111\103\103\108\101\85\73\40\41\10\101\110\100\41\10\10\108\111\99\97\108\32\84\97\98\32\61\32\87\105\110\100\111\119\58\78\101\119\84\97\98\40\34\83\101\116\116\105\110\103\115\34\41\10\108\111\99\97\108\32\83\101\99\116\105\111\110\53\32\61\32\84\97\98\58\78\101\119\83\101\99\116\105\111\110\40\34\83\101\116\116\105\110\103\115\34\41\10\10\83\101\99\116\105\111\110\53\58\78\101\119\66\117\116\116\111\110\40\34\67\114\101\97\116\111\114\32\61\32\83\95\77\97\108\105\107\34\44\32\34\83\95\77\97\108\105\107\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\112\114\105\110\116\40\34\67\108\105\99\107\101\100\34\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\53\58\78\101\119\66\117\116\116\111\110\40\34\74\111\105\110\32\68\105\115\99\111\114\100\32\49\34\44\32\34\68\105\115\99\111\114\100\32\67\111\112\105\101\100\32\67\111\112\121\32\80\97\115\116\101\32\73\110\32\66\114\111\119\115\101\114\33\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\115\101\116\99\108\105\112\98\111\97\114\100\40\34\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\103\103\47\103\119\50\54\69\80\106\120\116\107\34\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\53\58\78\101\119\66\117\116\116\111\110\40\34\74\111\105\110\32\68\105\115\99\111\114\100\32\50\34\44\32\34\68\105\115\99\111\114\100\32\67\111\112\105\101\100\32\67\111\112\121\32\80\97\115\116\101\32\73\110\32\66\114\111\119\115\101\114\33\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\115\101\116\99\108\105\112\98\111\97\114\100\40\34\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\103\103\47\77\52\89\68\66\106\84\56\101\84\34\41\10\101\110\100\41\10\10\83\101\99\116\105\111\110\53\58\78\101\119\66\117\116\116\111\110\40\34\68\101\118\45\32\77\105\100\110\105\103\104\116\34\44\32\34\85\73\32\72\101\108\112\101\114\47\67\114\101\97\116\111\114\34\44\32\102\117\110\99\116\105\111\110\40\41\10\32\32\32\32\112\114\105\110\116\40\34\67\108\105\99\107\101\100\34\41\10\101\110\100\41\10")()
+end)
+
+clicktp.Name = "clicktp"
+clicktp.Parent = main
+clicktp.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+clicktp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+clicktp.Position = UDim2.new(0.693739414, 0, 0.405017912, 0)
+clicktp.Size = UDim2.new(0, 57, 0, 30)
+clicktp.Font = Enum.Font.SourceSans
+clicktp.Text = "Click Teleport"
+clicktp.TextColor3 = Color3.fromRGB(0, 0, 0)
+clicktp.TextScaled = true
+clicktp.TextSize = 1.000
+clicktp.TextWrapped = true
+clicktp.MouseButton1Down:connect(function()
+	mouse = game.Players.LocalPlayer:GetMouse()
+	local tool = Instance.new("Tool")
+	tool.RequiresHandle = false
+	tool.Name = "Click Teleport"
+	tool.Activated:connect(function()
+		local pos = mouse.Hit+Vector3.new(0,2.5,0)
+		pos = CFrame.new(pos.X,pos.Y,pos.Z)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+	end)
+	tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+infjump.Name = "infjump"
+infjump.Parent = main
+infjump.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+infjump.BorderColor3 = Color3.fromRGB(0, 0, 0)
+infjump.Position = UDim2.new(0.861252069, 0, 0.405017912, 0)
+infjump.Size = UDim2.new(0, 57, 0, 30)
+infjump.Font = Enum.Font.SourceSans
+infjump.Text = "Infinite Jump"
+infjump.TextColor3 = Color3.fromRGB(0, 0, 0)
+infjump.TextScaled = true
+infjump.TextSize = 1.000
+infjump.TextWrapped = true
+infjump.MouseButton1Down:connect(function()
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "ReDevs";
+		Text = "- Infinite Jump executed Spam the space button as you can.";
+		Icon = "rbxassetid://4414605822";
+		Duration = 3;
+	})
+
+	_G.infinjump = true
+
+	local Player = game:GetService("Players").LocalPlayer
+	local Mouse = Player:GetMouse()
+	Mouse.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+				Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+				Humanoid:ChangeState("Jumping")
+				wait(0.1)
+				Humanoid:ChangeState("Seated")
+			end
+		end
+	end)
+
+	local Player = game:GetService("Players").LocalPlayer
+	local Mouse = Player:GetMouse()
+	Mouse.KeyDown:connect(function(k)
+		k = k:lower()
+		if k == "f" then
+			if _G.infinjump == true then
+				_G.infinjump = false
+			else
+				_G.infinjump = true
+			end
+		end
+	end)
+
+end)
+
+speed.Name = "speed"
+speed.Parent = main
+speed.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+speed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+speed.Position = UDim2.new(0.693739414, 0, 0.598566294, 0)
+speed.Size = UDim2.new(0, 57, 0, 30)
+speed.Font = Enum.Font.SourceSans
+speed.Text = "Speed \"X\" To Activate"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.TextScaled = true
+speed.TextSize = 1.000
+speed.TextWrapped = true
+speed.MouseButton1Down:connect(function()
+	local walkspeedplayer = game:GetService("Players").LocalPlayer
+	local walkspeedmouse = walkspeedplayer:GetMouse()
+
+	local walkspeedenabled = false
+
+	function x_walkspeed(key)
+		if (key == "x") then
+			if walkspeedenabled == false then
+				_G.WS = 200;
+				local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+				Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+					Humanoid.WalkSpeed = _G.WS;
+				end)
+				Humanoid.WalkSpeed = _G.WS;
+
+				walkspeedenabled = true
+			elseif walkspeedenabled == true then
+				_G.WS = 30;
+				local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+				Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+					Humanoid.WalkSpeed = _G.WS;
+				end)
+				Humanoid.WalkSpeed = _G.WS;
+
+				walkspeedenabled = false
+			end
+		end
+	end
+
+	walkspeedmouse.KeyDown:connect(x_walkspeed)
+end)
+
+notif.Name = "notif"
+notif.Parent = main
+notif.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+notif.BorderColor3 = Color3.fromRGB(0, 0, 0)
+notif.Position = UDim2.new(0.861252069, 0, 0.598566294, 0)
+notif.Size = UDim2.new(0, 57, 0, 30)
+notif.Font = Enum.Font.SourceSans
+notif.Text = "Notification Test"
+notif.TextColor3 = Color3.fromRGB(0, 0, 0)
+notif.TextScaled = true
+notif.TextSize = 1.000
+notif.TextWrapped = true
+notif.MouseButton1Down:connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification",{
+		Title = "Test",
+		Text = "Test Notification", 
+	})
+end)
+
+small.Name = "small"
+small.Parent = main
+small.BackgroundColor3 = Color3.fromRGB(0, 85, 0)
+small.BorderColor3 = Color3.fromRGB(0, 0, 0)
+small.Position = UDim2.new(0.781725824, 0, 0.752688169, 0)
+small.Size = UDim2.new(0, 57, 0, 30)
+small.Font = Enum.Font.SourceSans
+small.Text = "Become Small"
+small.TextColor3 = Color3.fromRGB(0, 0, 0)
+small.TextScaled = true
+small.TextSize = 1.000
+small.TextWrapped = true
+small.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetChildren()) do
+		if v:IsA("NumberValue") then
+			v:Destroy()
+		end
+	end
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Credits",
+	Text = "Script Made by MCG904YT#1317 | Enjoy!", 
+})
