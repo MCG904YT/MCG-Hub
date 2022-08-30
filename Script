@@ -36,6 +36,8 @@ local infjump = Instance.new("TextButton")
 local speed = Instance.new("TextButton")
 local notif = Instance.new("TextButton")
 local small = Instance.new("TextButton")
+local openFrame = Instance.new("Frame")
+local open = Instance.new("TextButton")
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 local mouse = plr:GetMouse()
@@ -53,6 +55,7 @@ main.Position = UDim2.new(0.183760688, 0, 0.290854573, 0)
 main.Size = UDim2.new(0, 591, 0, 279)
 main.Active = true
 main.Draggable = true
+main.Visible = false
 
 label.Name = "label"
 label.Parent = main
@@ -294,6 +297,7 @@ close.TextColor3 = Color3.fromRGB(0, 0, 0)
 close.TextSize = 60.000
 close.MouseButton1Down:connect(function()
 	main.Visible = false
+	open.Visible = true
 end)
 
 lag.Name = "lag"
@@ -822,6 +826,30 @@ small.MouseButton1Down:connect(function()
 			v:Destroy()
 		end
 	end
+end)
+
+openFrame.Name = "openFrame"
+openFrame.Parent = ScreenGui
+openFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openFrame.BackgroundTransparency = 100.000
+openFrame.Position = UDim2.new(0, 0, 0.386806577, 0)
+openFrame.Size = UDim2.new(0, 59, 0, 26)
+
+open.Name = "open"
+open.Parent = openFrame
+open.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+open.BorderColor3 = Color3.fromRGB(0, 0, 0)
+open.BorderSizePixel = 3
+open.Size = UDim2.new(0, 59, 0, 23)
+open.Font = Enum.Font.Kalam
+open.Text = "Synex Hub"
+open.TextColor3 = Color3.fromRGB(0, 0, 0)
+open.TextScaled = true
+open.TextSize = 14.000
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+	open.Visible = false
+	main.Visible = true
 end)
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
