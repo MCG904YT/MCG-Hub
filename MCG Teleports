@@ -99,7 +99,7 @@ classic.TextScaled = true
 classic.TextSize = 14.000
 classic.TextWrapped = true
 classic.MouseButton1Down:connect(function()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-851,91,-671)
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-844,91,-669)
 end)
 
 rock.Name = "rock"
