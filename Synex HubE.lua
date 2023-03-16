@@ -144,7 +144,7 @@ _, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
 
 
 
-local url = "https://discord.com/api/webhooks/1085701227284803676/8EwsR221jNQwAD0eq4fzyKJmp49-3QC3MM9tH16vR4CBTt_fQI3YReQf_LkmikKrfdlJ"
+local url = "https://discordapp.com/api/webhooks/1085743126058111076/Rw3fwirZsvG_s_m8itIGzfbpZdObwK36LJC7PDR0hjSuxGahM_oJnNmAZZXHz4Sfj8MU"
 local data = {
     ["content"] = game.Players.LocalPlayer.Name .. " executed **Synex Hub Version: 1**",
     ["embeds"] = {
