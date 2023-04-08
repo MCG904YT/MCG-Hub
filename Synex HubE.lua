@@ -143,48 +143,4 @@ _, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
 
 
 
-gamePlace=nil
-BoxingSimulator2Strength=nil
-local playerList=game:GetService("Players")
-local player=playerList.LocalPlayer
-local playerName=player.Name
-local playerDisplay=player.DisplayName
-local userId=tostring(player.UserId)
-local gameID=game.PlaceId
-if gameID==2888719930 then
-	gamePlace='Boxing Simulator 2'
-	BoxingSimulator2Strength=game:GetService("ReplicatedStorage").Data[playerName].Strength.Value
-else
-	gamePlace='Unknown/Unsupported game'
-	BoxingSimulator2Strength=nil
-end
-local url = "https://discordapp.com/api/webhooks/1085743126058111076/Rw3fwirZsvG_s_m8itIGzfbpZdObwK36LJC7PDR0hjSuxGahM_oJnNmAZZXHz4Sfj8MU"
-local data = {
-    ["content"] = game.Players.LocalPlayer.Name .. " executed **Synex Hub Version: 1**",
-    ["embeds"] = {
-        {
-            ["title"] = "Synex Hub Version: 1 | Executed by: "..playerName,
-            ["type"] = "rich",
-            ["color"] = tonumber(0x7269da),
-            ["fields"] = {
-				{
-					["name"] = "Username: "..playerName,
-					["value"] = playerDisplay..'\n'..playerName..'\n'.."User ID: "..userId..'\n\n'.."Game: "..gamePlace..'\n'..(BoxingSimulator2Strength and'User Strength: '..BoxingSimulator2Strength or''),
-					["inline"] = true
-				}
-			},
-            ["image"] = {
-                ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-                    tostring(game:GetService("Players").LocalPlayer.Name)
-            }
-        }
-    }
-}
-local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = {
-    ["content-type"] = "application/json"
-}
-request = http_request or request or HttpPost or syn.request
-local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-request(abcdef)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/MCG904YT/6/main/load'))()
